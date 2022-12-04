@@ -674,8 +674,8 @@ void push_or_sidle_wall(struct MarioState *m, Vec3f startPos) {
     //! (Speed Crash) If a wall is after moving 16384 distance, this crashes.
     s32 animSpeed = (s32)(movedDistance * 2.0f * 0x10000);
 
-    if (m->forwardVel > 6.0f) {
-        mario_set_forward_vel(m, 6.0f);
+    if (m->forwardVel > 20.0f) {
+        mario_set_forward_vel(m, 20.0f);
     }
 
     if (m->forwardVel > 0.0f) {

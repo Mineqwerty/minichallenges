@@ -1,0 +1,10 @@
+extern const GeoLayout ice_block_geo[];
+extern Lights1 ice_block_f3d_material_002_lights;
+extern u8 ice_block__07001800_ci8[];
+extern u8 ice_block__07001800_ci8_pal_rgba16[];
+extern Vtx ice_block_Cube_mesh_layer_5_vtx_0[14];
+extern Gfx ice_block_Cube_mesh_layer_5_tri_0[];
+extern Gfx mat_ice_block_f3d_material_002[];
+extern Gfx mat_revert_ice_block_f3d_material_002[];
+extern Gfx ice_block_Cube_mesh_layer_5[];
+extern Gfx ice_block_material_revert_render_settings[];

@@ -8,7 +8,7 @@
 // #define DEBUG_ALL
 
 // Disables all debug options (except PUPPYPRINT).
-#define DISABLE_ALL
+//#define DISABLE_ALL
 
 // Enables a comprehensive standalone profiler. Automatically enabled by PUPPYPRINT_DEBUG.
 // If not using PUPPYPRINT_DEBUG, press L to toggle the profiler.
@@ -18,13 +18,13 @@
 // Uncomment this define and set a test level in order to boot straight into said level.
 // This allows you to quickly test the level you're working on.
 // If you want the game to boot normally, just comment out the define again.
-// #define TEST_LEVEL LEVEL_BOB
+ #define TEST_LEVEL LEVEL_BOB
 
 // Enables debug level select. Hold L while the game boots to turn it on.
 #define DEBUG_LEVEL_SELECT
 
 // Enables debug free move (D-pad up to enter, A to exit).
-#define ENABLE_DEBUG_FREE_MOVE
+//#define ENABLE_DEBUG_FREE_MOVE
 
 // Enables a custom, enhanced performance profiler. (Enables PUPPYPRINT by default in config_safeguards).
 // #define PUPPYPRINT_DEBUG 1

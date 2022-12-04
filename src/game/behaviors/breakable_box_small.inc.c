@@ -1,5 +1,7 @@
 // breakable_box.inc.c
 
+#include "src/game/behavior_actions.h"
+
 struct ObjectHitbox sBreakableBoxSmallHitbox = {
     /* interactType:      */ INTERACT_GRABBABLE,
     /* downOffset:        */ 20,
@@ -16,7 +18,7 @@ void bhv_breakable_box_small_init(void) {
     o->oGravity = 2.5f;
     o->oFriction = 0.99f;
     o->oBuoyancy = 1.4f;
-    cur_obj_scale(0.4f);
+    cur_obj_scale(0.25f);
     obj_set_hitbox(o, &sBreakableBoxSmallHitbox);
     o->oAnimState = BREAKABLE_BOX_ANIM_STATE_CORK_BOX;
     o->activeFlags |= ACTIVE_FLAG_DESTRUCTIVE_OBJ_DONT_DESTROY;
@@ -116,6 +118,16 @@ void breakable_box_small_get_thrown(void) {
 }
 
 void bhv_breakable_box_small_loop(void) {
+
+
+    o->oGravity = 2.5f;
+    o->oFriction = 0.99f;
+    o->oBuoyancy = 1.4f;
+    cur_obj_scale(0.25f);
+    obj_set_hitbox(o, &sBreakableBoxSmallHitbox);
+    o->oAnimState = BREAKABLE_BOX_ANIM_STATE_CORK_BOX;
+    o->activeFlags |= ACTIVE_FLAG_DESTRUCTIVE_OBJ_DONT_DESTROY;
+
     switch (o->oHeldState) {
         case HELD_FREE:
             breakable_box_small_idle_loop();
@@ -134,6 +146,18 @@ void bhv_breakable_box_small_loop(void) {
             breakable_box_small_get_dropped();
             break;
     }
+    
+    f32 dist;
+    struct Object *nearFire = cur_obj_find_nearest_object_with_behavior(bhvFlame, &dist);
+
+    if (nearFire && dist < 200.0f) {
+        if (obj_has_model(nearFire, MODEL_BLUE_FLAME)){
+            struct Object *newblock = spawn_object(o, MODEL_ICE_BLOCK, bhvIceBlock);
+            newblock->oIceScale = 0.3f; 
+            obj_mark_for_deletion(o);
+        }
+    }
+
 
     o->oInteractStatus = INT_STATUS_NONE;
 }

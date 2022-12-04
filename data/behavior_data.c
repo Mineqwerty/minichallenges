@@ -4797,7 +4797,6 @@ const BehaviorScript bhvBreakableBoxSmall[] = {
     SET_HOME(),
     CALL_NATIVE(bhv_breakable_box_small_init),
     BEGIN_LOOP(),
-        SET_INT(oIntangibleTimer, 0),
         CALL_NATIVE(bhv_breakable_box_small_loop),
     END_LOOP(),
 };
@@ -6088,3 +6087,15 @@ const BehaviorScript bhvIntroScene[] = {
 };
 
 
+const BehaviorScript bhvIceBlock[] = {
+    BEGIN(OBJ_LIST_SURFACE),
+    OR_LONG(oFlags, OBJ_FLAG_DONT_CALC_COLL_DIST | OBJ_FLAG_HOLDABLE | OBJ_FLAG_COMPUTE_DIST_TO_MARIO | OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+    LOAD_COLLISION_DATA(ice_block_collision),
+    SET_INT(oInteractType, INTERACT_GRABBABLE),
+    SET_FLOAT(oCollisionDistance, 3000),
+    SET_HOME(),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_ice_block_loop),
+        SET_INT(oIntangibleTimer, 0),
+    END_LOOP(),
+};

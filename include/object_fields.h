@@ -1254,6 +1254,7 @@
 #define /*0x0FC*/ oYoshiChosenHome OBJECT_FIELD_S32(0x1D)
 #define /*0x100*/ oYoshiTargetYaw  OBJECT_FIELD_S32(0x1E)
 
+#define /*0x0F4*/ oIceScale OBJECT_FIELD_F32(0x1E)
 
 /*Custom general defines:
 
